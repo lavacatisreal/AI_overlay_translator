@@ -11,10 +11,10 @@
 ## ✨ 主要功能 (Features)
 
 *   **🎯 精準框選翻譯**：提供半透明綠色懸浮視窗，可自由拖曳與縮放，精確覆蓋欲翻譯的區域。
-*   **🤖 強大 AI 核心**：串接 **Google Gemini 1.5 Flash** 模型，翻譯品質遠勝傳統機器翻譯，更能理解語境與專業術語。
+*   **🤖 強大 AI 核心**：串接 **Google Gemini** 模型，翻譯品質遠勝傳統機器翻譯，更能理解語境與專業術語。
 *   **📐 智慧座標修正**：內建座標偏移補償演算法，解決在高 DPI 螢幕（如 Windows 縮放 125%/150%）下的截圖錯位問題。
 *   **🛡️ 防呆機制**：視窗具備最小縮放範圍限制 (100x60 px)，防止因範圍過小導致的辨識錯誤。
-*   **⚡ 全域快速鍵**：支援自訂快速鍵 (預設 `Ctrl+Shift+T`)，一鍵觸發截圖與翻譯。
+*   **⚡ 全域快速鍵**：支援自訂快速鍵 (預設 `F9`)，一鍵觸發截圖與翻譯。
 
 ## 🛠️ 安裝指南 (Installation)
 
@@ -40,9 +40,6 @@ python -m venv .venv
 pip install -r requirements.txt
 ```
 
-> **Requirements 內容範例：**
-> `PySide6`, `google-genai`, `python-dotenv`, `keyboard`, `pyperclip`, `Pillow`
-
 ## ⚙️ 設定 (Configuration)
 
 本專案使用 Google Gemini API，請先前往 [Google AI Studio](https://aistudio.google.com/) 申請免費的 API Key。
@@ -60,25 +57,30 @@ GOOGLE_API_KEY=你的_API_KEY_貼在這裡
    ```
    python main.py
    ```
-   *(請將 `main.py` 替換為您的主程式檔名)*
+
 
 2. **選取範圍**：
    螢幕上會出現一個半透明的綠色視窗。將其拖曳並縮放，覆蓋住您想要翻譯的文字區域。
 
 3. **觸發翻譯**：
-   按下預設快速鍵 **`Ctrl + Shift + T`**（或您設定的按鍵）。
+   按下預設快速鍵 **`F9`**（或您設定的按鍵）。
    *   程式會自動隱藏選取框 -> 截圖 -> 恢復選取框。
    *   翻譯結果將顯示於結果視窗中。
 
 ## 📂 專案結構 (Project Structure)
-
+本專案採用模組化設計，將介面 (GUI)、邏輯 (Workers) 與設定 (Config) 分離，以利維護與擴充。
 ```
 ai-overlay-translator/
-├── .env                # 環境變數 (存放 API Key，請勿上傳)
-├── .gitignore          # Git 忽略清單
-├── main.py             # 主程式入口 (GUI 與 邏輯核心)
-├── requirements.txt    # 依賴套件清單
-└── README.md           # 專案說明文件
+├── gui/ # 圖形使用者介面模組
+│ ├── overlay.py # 綠色選取視窗 (包含截圖與座標修正邏輯)
+│ └── result_window.py # 翻譯結果視窗 (顯示譯文與操作按鈕)
+├── .env # 環境變數 (存放 API Key，請勿上傳)
+├── .gitignore # Git 忽略清單
+├── config.py # 全域設定檔 (載入 .env、設定常數與模型參數)
+├── main.py # 程式進入點 (整合 GUI 與 Controller)
+├── workers.py # 背景工作執行緒 (處理 OCR 識別與 Gemini API 請求)
+├── requirements.txt # 依賴套件清單
+└── README.md # 專案說明文件
 ```
 
 ## 🤝 貢獻 (Contributing)
