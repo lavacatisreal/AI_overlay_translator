@@ -91,4 +91,3 @@ ai-overlay-translator/
 ## 📄 授權 (License)
 
 本專案採用 [MIT License](LICENSE) 授權。
-```
