@@ -1,6 +1,3 @@
-這份 `README.md` 專為您的專案量身打造，整合了您最近完成的「偏移修復」、「最小視窗限制」以及「Google Gemini API」功能。您可以直接複製並貼上到您的 `README.md` 檔案中。
-
-```markdown
 # 🌟 AI Overlay Translator (AI 懸浮翻譯助手)
 
 這是一個基於 Python 與 PySide6 開發的智慧懸浮翻譯工具。它能透過**螢幕截圖**與**AI 模型 (Google Gemini)** 結合，即時將螢幕上選定範圍內的文字翻譯成繁體中文。
@@ -84,15 +81,6 @@ ai-overlay-translator/
 └── README.md           # 專案說明文件
 ```
 
-## 📝 開發紀錄 (Changelog)
-
-*   **v1.0.1 (Latest)**
-    *   ✅ 修復高 DPI 螢幕下的截圖座標偏移問題。
-    *   ✅ 新增視窗最小縮放限制 (100x60)，提升操作穩定性。
-    *   ✅ 升級後端為 Google Gemini 1.5 Flash，大幅提升回應速度。
-*   **v1.0.0**
-    *   🎉 專案初版發布，實作基礎懸浮視窗與 OCR 功能。
-
 ## 🤝 貢獻 (Contributing)
 
 歡迎提交 Issue 或 Pull Request！
@@ -102,8 +90,3 @@ ai-overlay-translator/
 
 本專案採用 [MIT License](LICENSE) 授權。
 ```
-
-### 小提醒
-請記得檢查您的專案資料夾中是否有 `requirements.txt`。如果沒有，請在終端機執行 `pip freeze > requirements.txt` 來產生它，這樣其他人才能順利安裝您的專案。
-
-[1](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/60887185/3908ad2d-d878-4806-8889-70a11999e000/Yong-pythonXie-Chu-Yi-Ge-Fan-Yi-Ruan-Ti-_Xuan-Fu-Shi-Chuang-Fan-Yi-_Chuan-Jie-LLMMo-Xing-_Jiang-Zhi-Ding-Fan-Wei-Nei-De-Wen-Zi-Fan-Yi-Cheng-Mu-Biao-Yu-Yan-__Ping.pdf)
